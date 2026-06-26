@@ -1,0 +1,46 @@
+[window]
+opacity = 0.90
+padding = { x = 12, y = 12 }
+decorations = "None"
+
+[font]
+normal = { family = "Terminess Nerd Font", style = "Regular" }
+bold = { family = "Terminess Nerd Font", style = "Bold" }
+italic = { family = "Terminess Nerd Font", style = "Italic" }
+size = 12
+
+[cursor]
+style = "Beam"
+blink_interval = 500
+
+[colors.primary]
+background = "#0B1020"
+foreground = "#F5FBFF"
+
+[colors.normal]
+black   = "#0B1020"
+red     = "#FF4A91"
+green   = "#53F2F2"
+yellow  = "#83FFFF"
+blue    = "#4D7DFF"
+magenta = "#A47DFF"
+cyan    = "#53F2F2"
+white   = "#BBD8F7"
+
+[colors.bright]
+black   = "#2C4378"
+red     = "#FF84E8"
+green   = "#83FFFF"
+yellow  = "#FFFFFF"
+blue    = "#6EA0FF"
+magenta = "#C4A3FF"
+cyan    = "#B6FFFF"
+white   = "#FFFFFF"
+
+[colors.cursor]
+cursor = "#53F2F2"
+text = "#0B1020"
+
+[colors.selection]
+background = "#2B458A"
+text = "#FFFFFF"

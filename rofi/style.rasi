@@ -1,0 +1,176 @@
+configuration{
+    modi:"drun,run,window,filebrowser";
+    terminal:"alacritty";
+    drun-display-format:"{icon}  {name}";
+    display-drun:"  Apps";
+    display-run:"  Run";
+    display-window:"  Windows";
+    display-filebrowser:"  Files";
+    disable-history:false;
+    hide-scrollbar:true;
+    hover-select:true;
+    click-to-exit:true;
+    scroll-method:0;
+    matching:"fuzzy";
+    sorting-method:"fzf";
+    case-sensitive:false;
+    cycle:true;
+    normalize-match:true;
+    steal-focus:true;
+    font:"Terminess Nerd Font 12";
+}
+
+*{
+    background:      rgba(11,16,32,92%);
+    background-alt:  #131B35;
+    background-light:#1A2345;
+    foreground:      #F5FBFF;
+    foreground-alt:  #B7D8FF;
+    border:          #53F2F2;
+    blue:            #4D7DFF;
+    cyan:            #53F2F2;
+    purple:          #9A7DFF;
+    magenta:         #FF5FD7;
+    pink:            #FF8AEF;
+    urgent:          #FF4A91;
+    success:         #53F2F2;
+    radius:          20px;
+}
+
+window{
+    transparency:"real";
+    location:center;
+    anchor:center;
+    width:40%;
+    border:2px;
+    border-color:@border;
+    border-radius:@radius;
+    background-color:@background;
+    padding:20px;
+}
+
+mainbox{
+    orientation:vertical;
+    spacing:14px;
+    background-color:transparent;
+    children:[inputbar,message,listview,mode-switcher];
+}
+
+inputbar{
+    background-color:@background-alt;
+    border:2px;
+    border-color:@blue;
+    border-radius:16px;
+    padding:12px;
+    spacing:10px;
+    children:[prompt,entry];
+}
+
+prompt{
+    enabled:true;
+    text-color:@cyan;
+    background-color:transparent;
+}
+
+entry{
+    background-color:transparent;
+    text-color:@foreground;
+    placeholder:"Search...";
+    placeholder-color:@foreground-alt;
+    cursor:true;
+}
+
+message{
+    enabled:false;
+}
+
+listview{
+    columns:1;
+    lines:8;
+    cycle:true;
+    dynamic:true;
+    scrollbar:false;
+    spacing:8px;
+    background-color:transparent;
+}
+
+element{
+    orientation:horizontal;
+    background-color:transparent;
+    border-radius:14px;
+    padding:10px;
+    spacing:14px;
+    children:[element-icon,element-text];
+}
+
+element normal.normal{
+    background-color:transparent;
+    text-color:@foreground;
+}
+
+element alternate.normal{
+    background-color:transparent;
+    text-color:@foreground;
+}
+
+element selected.normal{
+    background-color:@blue;
+    text-color:#FFFFFF;
+    border:2px;
+    border-color:@cyan;
+}
+
+element selected.active{
+    background-color:@purple;
+    text-color:#FFFFFF;
+}
+
+element selected.urgent{
+    background-color:@urgent;
+    text-color:#FFFFFF;
+}
+
+element-icon{
+    size:36px;
+    background-color:transparent;
+}
+
+element-text{
+    background-color:transparent;
+    text-color:inherit;
+    vertical-align:0.5;
+}
+
+mode-switcher{
+    orientation:horizontal;
+    spacing:8px;
+    background-color:transparent;
+}
+
+button{
+    background-color:@background-alt;
+    text-color:@foreground-alt;
+    border-radius:12px;
+    padding:8px 14px;
+}
+
+button selected{
+    background-color:@cyan;
+    text-color:#0B1020;
+}
+
+textbox{
+    background-color:transparent;
+    text-color:@foreground;
+}
+
+scrollbar{
+    enabled:false;
+}
+
+error-message{
+    background-color:@urgent;
+    text-color:#FFFFFF;
+    border-radius:12px;
+    padding:10px;
+}

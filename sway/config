@@ -1,0 +1,130 @@
+set $mod Mod4
+
+### Variables
+set $mod Mod4
+set $term alacritty
+set $menu rofi -show drun
+
+### Apariencia
+
+gaps inner 3
+gaps outer 3
+
+default_border pixel 2
+
+client.focused          #53F2F2 #131B35 #F5FBFF #53F2F2 #53F2F2
+client.focused_inactive #2C4378 #0B1020 #BBD8F7 #2C4378 #2C4378
+client.unfocused        #1A2645 #0B1020 #6E86B6 #1A2645 #1A2645
+client.urgent           #FF4A91 #0B1020 #FFFFFF #FF4A91 #FF4A91
+client.placeholder      #1C2447 #1C2447 #FFFFFF #1C2447 #1C2447
+
+# Autostart
+output * bg ~/Descargas/miku.png fill
+exec --no-startup-id waybar
+exec export XDG_CURRENT_DESKTOP=sway
+exec export XDG_SESSION_TYPE=wayland
+exec swaync
+
+### Aplicaciones
+
+bindsym $mod+Return exec alacritty
+bindsym $mod+d exec rofi -show drun
+bindsym $mod+q kill
+
+### Recargar
+
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exit
+
+### Movimiento
+
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+### Layouts
+
+bindsym $mod+b splith
+bindsym $mod+v splitv
+
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+### Fullscreen
+
+bindsym $mod+f fullscreen toggle
+
+### Floating
+floating_modifier $mod normal
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+
+### Contenedor padre/hijo
+
+bindsym $mod+a focus parent
+
+### Scratchpad
+
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+
+# Screenshot
+bindsym $mod+Print exec grim -g "$(slurp)" /home/avery/Imágenes/screenshot_$(date +%Y%m%d_%H%M%S).png
+
+# Cursor theme
+seat seat0 xcursor_theme miku-cursor-linux 50
+
+# Other stuff related to custom cursor theme
+exec_always {
+    systemctl --user import-environment XCURSOR_SIZE XCURSOR_THEME
+    gsettings set org.gnome.desktop.interface cursor-theme 'miku-cursor-linux'
+    gsettings set org.gnome.desktop.interface cursor-size 32
+}

@@ -1,0 +1,121 @@
+{
+    "layer": "top",
+    "position": "top",
+    "mode": "dock",
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+    "spacing": 8,
+    "height": 20,
+
+    "modules-left": [
+        "custom/menu",
+        "sway/workspaces",
+        "sway/mode",
+        "sway/window"
+    ],
+
+    "modules-center": [
+        "clock"
+    ],
+
+    "modules-right": [
+        "cpu",
+        "memory",
+        "temperature",
+        "backlight",
+        "network",
+        "pulseaudio",
+        "battery",
+        "tray"
+    ],
+
+    "custom/menu": {
+        "format": " ",
+        "tooltip": false,
+        "on-click": "rofi -show drun"
+    },
+
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{icon}",
+        "persistent-workspaces": {
+            "*": [1,2,3,4,5]
+        }
+    },
+
+    "sway/window": {
+        "max-length": 20,
+        "separate-outputs": true
+    },
+
+    "clock": {
+        "interval": 1,
+        "format": " {:%H:%M}",
+        "format-alt": " {:%A %d %B %Y}"
+    },
+
+    "cpu": {
+        "interval": 2,
+        "format": "  {usage}%"
+    },
+
+    "memory": {
+        "interval": 2,
+        "format": "  {}%"
+    },
+
+    "temperature": {
+        "critical-threshold": 80,
+        "format": "  {temperatureC}°"
+    },
+
+    "backlight": {
+        "format": "󰃟  {percent}%"
+    },
+
+    "network": {
+        "format-wifi": "󰖩  {essid}",
+        "format-ethernet": "󰈀  Ethernet",
+        "format-disconnected": "󰖪 Offline",
+        "tooltip-format": "{ipaddr}"
+    },
+
+    "pulseaudio": {
+        "scroll-step": 5,
+        "format": "{icon} {volume}%",
+        "format-muted": "󰝟 Muted",
+        "format-icons": [
+            "",
+            "",
+            ""
+        ]
+    },
+
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": "󰂄 {capacity}%",
+        "format-icons": [
+            "󰁺",
+            "󰁻",
+            "󰁼",
+            "󰁽",
+            "󰁾",
+            "󰁿",
+            "󰂀",
+            "󰂁",
+            "󰂂",
+            "󰁹"
+        ]
+    },
+
+    "tray": {
+        "spacing": 10
+    }
+}
