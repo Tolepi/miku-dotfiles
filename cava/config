@@ -1,5 +1,5 @@
 [general]
-bars=30
+bars=auto
 bar_width=2
 bar_spacing=1
 sleep_timer=1
